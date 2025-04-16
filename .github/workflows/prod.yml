@@ -21,9 +21,9 @@ jobs:
       - name: Login Docker Hub
         run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
       - name: Build docker image
-        run: docker build -t cavasini/AppointmentService .
+        run: docker build -t cavasini/appointment_service .
       - name: Push image docker
-        run: docker push cavasini/AppointmentService
+        run: docker push cavasini/appointment_service
 
 
 
