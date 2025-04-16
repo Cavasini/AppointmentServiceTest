@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 public record AppointmentPostRequest(
-//        UUID userId,
+        UUID userId,
         UUID clientId,
         LocalDateTime startTime,
         LocalDateTime endTime,
