@@ -61,9 +61,4 @@ public class AppointmentController {
         return ResponseEntity.ok("deu bom");
     }
 
-    @GetMapping("/teste")
-    public ResponseEntity<String> getTest1(){
-        return ResponseEntity.ok("deu bom");
-    }
-
 }
