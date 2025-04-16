@@ -29,7 +29,9 @@ jobs:
     needs: build
     runs-on: self-hosted
     steps:
-      - name: Pull imagem fron docker hub
+      - name: Remove old docker image
+        run: docker rm deploy_appointment
+      - name: Pull new image from docker hub
         run: docker pull cavasini/appointment_service:latest
       - name: Run docker container
         run: docker run -d -p 8080:8080 --name deploy_appointment cavasini/appointment_service
