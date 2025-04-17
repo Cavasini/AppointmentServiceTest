@@ -32,6 +32,12 @@ jobs:
       - name: Pull new image from docker hub
         run: docker pull cavasini/appointment_service:latest
 
+      - name: Stop container if exists
+        run: |
+          if [ "$(docker ps -aq -f name=deploy_appointment)" ]; then
+          docker stop deploy_appointment
+          fi
+
       - name: Remove container if exists
         run: |
           if [ "$(docker ps -aq -f name=deploy_appointment)" ]; then
