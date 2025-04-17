@@ -1,20 +1,8 @@
 package com.timewise.AppointmentService.controller;
-
-import com.timewise.AppointmentService.domain.Appointment;
-import com.timewise.AppointmentService.dto.AppointmentPostRequest;
-import com.timewise.AppointmentService.dto.AppointmentPostResponse;
-import com.timewise.AppointmentService.dto.ScheduleAvailabilityResponse;
-import com.timewise.AppointmentService.service.AppointmentService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
+import com.timewise.AppointmentService.dto.ResponseDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/appointments")
@@ -57,8 +45,8 @@ public class AppointmentController {
 //    }
 
     @GetMapping
-    public ResponseEntity<String> getTest(){
-        return ResponseEntity.ok("deu bom");
+    public ResponseEntity<ResponseDTO> getTest(){
+        return ResponseEntity.ok(new ResponseDTO("Deu Bom!"));
     }
 
 }
