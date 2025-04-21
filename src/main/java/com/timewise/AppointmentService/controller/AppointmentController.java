@@ -46,7 +46,9 @@ public class AppointmentController {
 
     @GetMapping
     public ResponseEntity<ResponseDTO> getTest(){
-        return ResponseEntity.ok(new ResponseDTO("Deu Bom 3!"));
+        var response = ResponseEntity.ok(new ResponseDTO("Deu Bom!"));
+
+        return response;
     }
 
 }

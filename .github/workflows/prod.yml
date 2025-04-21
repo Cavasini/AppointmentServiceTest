@@ -16,14 +16,20 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '21'
-      - name: Build Project
-        run: mvn clean install -DskipTests
+      - name: Build Project and run tests
+        run: mvn clean install
       - name: Login Docker Hub
         run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
       - name: Build docker image
         run: docker build -t cavasini/appointment_service .
       - name: Push image docker
         run: docker push cavasini/appointment_service
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: target/site/jacoco/jacoco.xml
+          fail_ci_if_error: true
 
   deploy:
     needs: build
